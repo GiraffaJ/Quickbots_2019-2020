@@ -21,9 +21,9 @@ def main():
     tank_drive = MoveTank(OUTPUT_B, OUTPUT_C)
     loop_gyro = 0
     starting_value = GY.value()
-# change 50 to whatever speed what you want 
-    left_wheel_speed = 50
-    right_wheel_speed = 50
+# change 20 to whatever speed what you want 
+    left_wheel_speed = 20
+    right_wheel_speed = 20
 # change 999999999999 to however you want to go
 # if Gyro value is the same as the starting value, go straigt. if more turn right. if less turn left
     while loop_gyro <999999999999:
@@ -31,20 +31,17 @@ def main():
             left_wheel_speed = 20
             right_wheel_speed = 20
             tank_drive.on_for_degrees(SpeedPercent(left_wheel_speed), SpeedPercent(right_wheel_speed), 180)
-            sleep(0.1)
         else:
             if GY.value() >= starting_value:
-                left_wheel_speed += 5
+                left_wheel_speed -= 5
                 tank_drive.on_for_degrees(SpeedPercent(left_wheel_speed), SpeedPercent(right_wheel_speed), 180)
                 left_wheel_speed = 20
                 right_wheel_speed = 20
-                sleep(0.1)
             else:
-                right_wheel_speed += 5
+                right_wheel_speed -= 5
                 tank_drive.on_for_degrees(SpeedPercent(left_wheel_speed), SpeedPercent(right_wheel_speed), 180)
                 left_wheel_speed = 20
                 right_wheel_speed = 20
-                sleep(0.1)
 
 # stop all motors
     MB.stop(stop_action="hold")
