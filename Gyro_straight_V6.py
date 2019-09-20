@@ -33,14 +33,15 @@ def main():
             tank_drive.on_for_degrees(SpeedPercent(left_wheel_speed), SpeedPercent(right_wheel_speed), 180)
         else:
             if GY.value() > starting_value:
-                left_wheel_speed = left_wheel_speed - GY.value / 2
-                right_wheel_speed = right_wheel_speed + GY.value * -0.5
+                left_wheel_speed = left_wheel_speed - GY.value / 2 #add parenthesis
+                right_wheel_speed = right_wheel_speed + GY.value * -0.5 #add parenthesis
                 tank_drive.on_for_degrees(SpeedPercent(left_wheel_speed), SpeedPercent(right_wheel_speed), 180)
                 left_wheel_speed = 20
                 right_wheel_speed = 20
             else:
-                right_wheel_speed = right_wheel_speed - GY.value / 2 
-                left_wheel_speed = left_wheel_speed + GY.value * -0.5
+                #You gotta add parenthesis because it's doin somethin!!!!!!! 
+                right_wheel_speed = right_wheel_speed - GY.value / 2 #add parenthesis
+                left_wheel_speed = left_wheel_speed + GY.value * -0.5 #add parenthesis
                 tank_drive.on_for_degrees(SpeedPercent(left_wheel_speed), SpeedPercent(right_wheel_speed), 180)
                 left_wheel_speed = 20
                 right_wheel_speed = 20            
@@ -53,3 +54,7 @@ def main():
 
 if __name__ == "__main__":
     main()    
+
+#I'm so infinitely proud of all of you! 
+#Keep up the amazing work
+#SOUP!
