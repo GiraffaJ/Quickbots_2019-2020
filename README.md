@@ -1,2 +1,2 @@
 #QuickBots
-Just added 3 new line followers
+Just added 2 new gyro straights
