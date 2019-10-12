@@ -4,6 +4,14 @@ import ev3dev.fonts as fonts
 from ev3dev2.motor import LargeMotor, OUTPUT_B, OUTPUT_C, SpeedPercent, MoveTank 
 from time import sleep
 # what does this do^^^^^^^^????????!!!!!!!!!!!!!???????????!!!!!!!?????????!!!!!!!!!!!!?????????
+# "!/usr/bin/env python3" Tells your robot where to look to find the python package it should use (room in the house.)
+# The things under it are import statements. Think of it when you download an app to your phone. Textually, that would
+# be like saying "from App_Store import Game" and then after that, your phone has access to all of the 
+# functions of that game. The import statements above download extensions to your Ev3 that give it access to 
+# new functions. For example, "import ev3dev.fonts as fonts" gives you access to some fonts that don't come 
+# originally installed on the Ev3. Let me know if this clears it up! 
+
+
 def main():
     gy = GyroSensor()
     mB = LargeMotor('outB')
