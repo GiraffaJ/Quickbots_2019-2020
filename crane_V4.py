@@ -27,9 +27,9 @@ def main():
     right_wheel_speed = -300
 # if Gyro value is the same as the starting value, go straigt. if more turn right. if less turn left. V
 # FIX THIS VALUE!!!!!!!!!! V
-    while MB.position >= -500:
+    while MB.position >= -500: # consider adjusting the wheel speeds only if your current gyro value doesn't equal the starting value
         if GY.value() == 0:
-            left_wheel_speed = -300
+            left_wheel_speed = -300 
             right_wheel_speed = -300
             MB.run_forever(speed_sp=left_wheel_speed)
             MC.run_forever(speed_sp=right_wheel_speed)
