@@ -2,6 +2,7 @@
 from ev3dev.ev3 import *
 from ev3dev2.motor import LargeMotor, OUTPUT_B, OUTPUT_C, SpeedPercent, MoveTank, MediumMotor, OUTPUT_D, OUTPUT_A 
 from time import sleep
+#from ev3dev2.motor import Motor
 # importing everything. ^
 #defining all variables, sensors, and motors. V
 
@@ -29,7 +30,7 @@ def main():
     right_wheel_speed = -300
 # if Gyro value is the same as the starting value, go straigt. if more turn right. if less turn left. V
 # FIX THIS VALUE!!!!!!!!!! V (make sure it greater than or = to)
-    while MB.position > -0.5:
+    while MB.position > -0.5: # is this supposed to be so small? -Alex
         if GY.value() != 0:
             if GY.value() > starting_value:
                 correct_rate = abs (GY.value()) # This captures the gyro value at the beginning of the statement
