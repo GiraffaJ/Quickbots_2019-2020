@@ -29,8 +29,8 @@ def main():
     left_wheel_speed = -300
     right_wheel_speed = -300
 # if Gyro value is the same as the starting value, go straigt. if more turn right. if less turn left. V
-# FIX THIS VALUE!!!!!!!!!! V (make sure it greater than or = to)
-    while MB.position > -0.5: # is this supposed to be so small? -Alex
+# FIX THIS VALUE!!!!!!!!!! V 
+    while MB.position > -0.2:
         if GY.value() != 0:
             if GY.value() > starting_value:
                 correct_rate = abs (GY.value()) # This captures the gyro value at the beginning of the statement
