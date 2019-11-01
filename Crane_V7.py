@@ -67,7 +67,7 @@ def main():
 # wait for the block to drop. V
     sleep(1.5)                
 # pulling away from the crane. V
-    tank_drive.on_for_rotations(SpeedPercent(20), SpeedPercent(10), 0.25)
+    tank_drive.on_for_rotations(SpeedPercent(20), SpeedPercent(10), 0.50)
 # Unlocking attachment. V
     MD.on_for_degrees(SpeedPercent(50), 360)
 # pulling away from unlocked attachment. V
