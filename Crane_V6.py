@@ -9,10 +9,10 @@ from ev3dev2.motor import Motor
 # defining all variables
 def main():
     Sound.speak("").wait()
-    MA = MediumMotor("")
+    MA = MediumMotor("outA")
     MB = LargeMotor("outB")
     MC = LargeMotor("outC")
-    MD = MediumMotor("")
+    MD = MediumMotor("outD")
     GY = GyroSensor("")
     C3 = ColorSensor("")
     C4 = ColorSensor("")
@@ -23,7 +23,7 @@ def main():
     GY.mode='GYRO-ANG'
     tank_drive = MoveTank(OUTPUT_B, OUTPUT_C)
     loop_gyro = 0
-    gyro_adjust = 1
+    gyro_adjust = 12
     # change this to whatever speed what you want 
     left_wheel_speed = -300
     right_wheel_speed = -300
@@ -36,9 +36,9 @@ def main():
             right_wheel_speed = -300
             MB.run_forever(speed_sp=left_wheel_speed)
             MC.run_forever(speed_sp=right_wheel_speed)
-            gyro_adjust = 12
+            gyro_adjust = 9
         else:
-            if GY.value() > 0:
+            if GY.value() < 0:
                 correct_rate = abs (GY.value()) # This captures the gyro value at the beginning of the statement
                 left_wheel_speed = left_wheel_speed + gyro_adjust 
                 right_wheel_speed = right_wheel_speed - gyro_adjust 
