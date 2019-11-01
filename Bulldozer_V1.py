@@ -27,7 +27,7 @@ def main():
 # change the loop_gyro verses the defined value argument to however far you want to go
 # if Gyro value is the same as the starting value, go straight, if more turn right, if less turn left
 # change the value to how far you want the robot to go. V
-    while MB.position > -770:
+    while MB.position > -750:
         if GY.value() == 0:
             left_wheel_speed = -300
             right_wheel_speed = -300
@@ -64,7 +64,7 @@ def main():
         MB.run_forever(speed_sp=300)
         MC.run_forever(speed_sp=-300)   
 # drive into home
-    tank_drive.on_for_rotations(SpeedPercent(50), SpeedPercent(50), 2)
+    tank_drive.on_for_rotations(SpeedPercent(50), SpeedPercent(50), 4)
 
 
 if __name__ == "__main__":
