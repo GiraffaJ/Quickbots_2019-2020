@@ -58,6 +58,7 @@ def Redcircle():
 # change this to whatever speed what you want. V
     left_wheel_speed = 100
     right_wheel_speed = 100
+    tank_drive.on_for_rotations(SpeedPercent(100), SpeedPercent(100), 0.01) #wheel alignment
     # change the loop_gyro verses the defined value argument to however far you want to go
 # if Gyro value is the same as the starting value, go straight, if more turn right, if less turn left
 # change the value to how far you want the robot to go. V
@@ -155,6 +156,7 @@ def Bulldozer():
     # change this to whatever speed what you want 
     left_wheel_speed = -300
     right_wheel_speed = -300
+    tank_drive.on_for_rotations(SpeedPercent(100), SpeedPercent(100), 0.01) #wheel alignment
 # change the loop_gyro verses the defined value argument to however far you want to go
 # if Gyro value is the same as the starting value, go straight, if more turn right, if less turn left
 # change the value to how far you want the robot to go. V
@@ -221,6 +223,7 @@ def Crane():
     # change this to whatever speed what you want 
     left_wheel_speed = -300
     right_wheel_speed = -300
+    tank_drive.on_for_rotations(SpeedPercent(100), SpeedPercent(100), 0.01) #wheel alignment
 # change the loop_gyro verses the defined value argument to however far you want to go
 # if Gyro value is the same as the starting value, go straight, if more turn right, if less turn left
 # change the value to how far you want the robot to go. V
