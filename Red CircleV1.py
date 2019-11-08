@@ -3,7 +3,6 @@ from ev3dev.ev3 import *
 from ev3dev2.motor import LargeMotor, OUTPUT_B, OUTPUT_C, SpeedPercent, MoveTank, MediumMotor, OUTPUT_D, OUTPUT_A 
 from time import sleep
 from ev3dev2.motor import Motor
-# THIS IS JOSHUA'S TEST!!!!!!!!!!!!
 # defining all variables. V
 def main():
     Sound.speak("").wait()
@@ -14,9 +13,8 @@ def main():
     GY = GyroSensor("")
     C3 = ColorSensor("")
     C4 = ColorSensor("")
-    T1 = TouchSensor("")
 
-
+#Setting the Gyro. V
     GY.mode='GYRO-ANG'
     GY.mode='GYRO-RATE'
     GY.mode='GYRO-ANG'
@@ -27,15 +25,16 @@ def main():
     gyro_correct_loops = 0
     straight_correct_loops = 0
     gyro_correct_straight = 0
-# change this to whatever speed what you want 
+# change this to whatever speed what you want. V
     left_wheel_speed = 100
     right_wheel_speed = 100
     # change the loop_gyro verses the defined value argument to however far you want to go
 # if Gyro value is the same as the starting value, go straight, if more turn right, if less turn left
-# change the value to how far you want the robot to go
-    tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 1)
-    
-    while GY.value() < 80:
+# change the value to how far you want the robot to go. V
+#Pulling out of Launch area. V
+    tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 1.5)
+#Gyro Turn toowards the red circle. V
+    while GY.value() < 80: 
         left_wheel_speed = 100
         right_wheel_speed = -100
         #MB is left wheel & MC is right wheel
@@ -44,8 +43,8 @@ def main():
     MB.stop(stop_action="hold")
     MC.stop(stop_action="hold")
     
-
-    while MB.position > -2351:
+#Driving forward towards the red circle. V
+    while MB.position > -1270: #was -1280, tessa is changing it to 1270 to stay in circle better
         if GY.value() == 90:
             left_wheel_speed = -300
             right_wheel_speed = -300
@@ -100,24 +99,8 @@ def main():
 # stop all motors
     MB.stop(stop_action="hold")
     MC.stop(stop_action="hold")
-
-    while GY.value() < 128: #was 121 
-        left_wheel_speed = 100
-        right_wheel_speed = -100
-        #MB is left wheel & MC is right wheel
-        MB.run_forever(speed_sp=left_wheel_speed)
-        MC.run_forever(speed_sp=right_wheel_speed)
-    MB.stop(stop_action="hold")
-    MC.stop(stop_action="hold")
-    tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 0.25)
-
-    tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 0.5)
-
-    while GY.value() > 90:
-        left_wheel_speed = -200
-        right_wheel_speed = 200
-
-    tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 3)
+#Pulling away from the Red circle and driving into home. V
+    tank_drive.on_for_rotations(SpeedPercent(65), SpeedPercent(65), 5)
 
 
 if __name__ == "__main__":
