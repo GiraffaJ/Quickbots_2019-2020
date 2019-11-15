@@ -402,4 +402,11 @@ def Launchrun():
     btn.on_enter = enter
     while program running == 0:
         btn.process()
+
+
+
+# if you all see this before you compete on Saturday, I want you to know that I am so incredibly proud of you all and you're 
+# going to do PHENOMENAL! You all are the complete and total embodiment of what it means to be an FIRST participant and I 
+# cannot wait to see all of the amazing things you're going to accomplish and all of the people whose lives you're going 
+# to change
     
