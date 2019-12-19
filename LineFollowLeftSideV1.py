@@ -38,11 +38,10 @@ def main():
 # if senses anything else, go back to the line
 
             else:
-                if GY.value < 0:
+                if GY.value < -5:
                     tank_drive.on_forever(SpeedPercent(-100), SpeedPercent(-90))  
-                elif GY.value == 0:
-                    tank_drive.on_forever(SpeedPercent(-100), SpeedPercent(-100)) 
-                else:
+                    
+                elif GY.value > 5:
                     tank_drive.on_forever(SpeedPercent(-90), SpeedPercent(-100))
                     
 LineFollow()
