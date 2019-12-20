@@ -17,7 +17,6 @@ def main():
         lcd = Screen()
         tank_drive = MoveTank(OUTPUT_B, OUTPUT_C)
 
-
 # V  Adjust the number after the C to choose the port it's sensing from. V
 # V  Setting the Color and Gyro sensor mode and telling it what colors it can see. V
         GY.mode='GYRO-ANG'
@@ -28,6 +27,7 @@ def main():
 
 # Adjust this value to make  VVVV  it go closer or farther
         while MB.position > -1270:
+            
 # if senses black, turn a little to the left
             if colors[C3.value()] == "black":
                 tank_drive.on_forever(SpeedPercent(-90), SpeedPercent(-100))

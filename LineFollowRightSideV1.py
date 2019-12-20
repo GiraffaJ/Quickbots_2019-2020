@@ -28,6 +28,7 @@ def main():
 
 # Adjust this value to make  VVVV  it go closer or farther
         while MB.position > -1270:
+            
 # if senses black, turn a little to the left
             if colors[C3.value()] == "black":
                 tank_drive.on_forever(SpeedPercent(-100), SpeedPercent(-90))
