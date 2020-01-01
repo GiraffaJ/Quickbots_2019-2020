@@ -8,17 +8,14 @@ from ev3dev2.motor import Motor
 
 def main():
     program_running = 0
-    def Redcircle():
-        Sound.speak("").wait()
-        MA = MediumMotor("")
-        MB = LargeMotor("outB")
-        MC = LargeMotor("outC")
-        MD = MediumMotor("")
-        GY = GyroSensor("")
-        C3 = ColorSensor("")
-        C4 = ColorSensor("")
-
-    #Setting the Gyro. V
+    MA = MediumMotor("")
+    MB = LargeMotor("outB")
+    MC = LargeMotor("outC")
+    MD = MediumMotor("outD")
+    GY = GyroSensor("")
+    C3 = ColorSensor("")
+    C4 = ColorSensor("")
+    def Redcircle():#Setting the Gyro. V
         GY.mode='GYRO-ANG'
         GY.mode='GYRO-RATE'
         GY.mode='GYRO-ANG'
@@ -105,22 +102,13 @@ def main():
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
     #Pulling away from the Red circle and driving into home. V
-        tank_drive.on_for_rotations(SpeedPercent(65), SpeedPercent(65), 5)
-
+        tank_drive.on_for_rotations(SpeedPercent(65), SpeedPercent(65), 6) #originally 5 rotations.
+        MB.stop(stop_action="coast")
+        MC.stop(stop_action="coast")
         program_running = 0
         Launchrun()  
 
     def Bulldozer():
-        Sound.speak("").wait()
-        MA = MediumMotor("outA")
-        MB = LargeMotor("outB")
-        MC = LargeMotor("outC")
-        MD = MediumMotor("outD")
-        GY = GyroSensor("")
-        C3 = ColorSensor("")
-        C4 = ColorSensor("")
-
-
         GY.mode='GYRO-ANG'
         GY.mode='GYRO-RATE'
         GY.mode='GYRO-ANG'
@@ -172,22 +160,13 @@ def main():
             MC.run_forever(speed_sp=-300)   
     # drive into home
         tank_drive.on_for_rotations(SpeedPercent(50), SpeedPercent(50), 4)
-
+        MB.stop(stop_action="coast")
+        MC.stop(stop_action="coast")
 
         program_running = 0
         Launchrun()  
 
     def Crane():
-        Sound.speak("").wait()
-        MA = MediumMotor("outA")
-        MB = LargeMotor("outB")
-        MC = LargeMotor("outC")
-        MD = MediumMotor("outD")
-        GY = GyroSensor("")
-        C3 = ColorSensor("")
-        C4 = ColorSensor("")
-
-
         GY.mode='GYRO-ANG'
         GY.mode='GYRO-RATE'
         GY.mode='GYRO-ANG'
@@ -249,23 +228,13 @@ def main():
             MC.run_forever(speed_sp=-300)   
     # drive into home
         tank_drive.on_for_rotations(SpeedPercent(50), SpeedPercent(50), 4)
-
+        MB.stop(stop_action="coast")
+        MC.stop(stop_action="coast")
 
         program_running = 0
         Launchrun()  
 
     def Spider():
-        Sound.speak("").wait()
-        MA = MediumMotor("")
-        MB = LargeMotor("outB")
-        MC = LargeMotor("outC")
-        MD = MediumMotor("")
-        GY = GyroSensor("")
-        C3 = ColorSensor("")
-        C4 = ColorSensor("")
-        T1 = TouchSensor("")
-
-
         GY.mode='GYRO-ANG'
         GY.mode='GYRO-RATE'
         GY.mode='GYRO-ANG'
@@ -283,7 +252,7 @@ def main():
         # change the loop_gyro verses the defined value argument to however far you want to go
     # if Gyro value is the same as the starting value, go straight, if more turn right, if less turn left
     # change the value to how far you want the robot to go
-        tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 1) #the robot starts out from base
+        tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 0.95) # Originally 0.9. he robot starts out from base
         
         while GY.value() < 85: #gyro turns 85 degrees and faces towards the swing
             left_wheel_speed = 100
@@ -294,7 +263,7 @@ def main():
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
         
-        while MB.position > -2326: #this is the gyro program, the first line tells the bot to continue loop until it reaches a defined position
+        while MB.position > -2326: # this is the gyro program, the first line tells the bot to continue loop until it reaches a defined position
             if GY.value() == 90: #this runs if the gyro is OK and already straight, sets a lot of variables as well
                 left_wheel_speed = -300
                 right_wheel_speed = -300
@@ -358,7 +327,7 @@ def main():
             MC.run_forever(speed_sp=right_wheel_speed)
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
-        tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 0.25) #goes forward slightly to move the blocks all the way into the circle
+        tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 0.18) #Originally 0.2. goes forward slightly to move the blocks all the way into the circle
 
         tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 1) #drives back a bit
 
@@ -370,34 +339,40 @@ def main():
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
     # Returning to home. V
-        tank_drive.on_for_rotations(SpeedPercent(75), SpeedPercent(75), 8.5) #drives back to base. 
-
+        tank_drive.on_for_rotations(SpeedPercent(50), SpeedPercent(50), 9) #drives back to base. originally 8.5 rotations. keep speed at 50
+        MB.stop(stop_action="coast")
+        MC.stop(stop_action="coast")
         program_running = 0
         Launchrun()  
 
     def Launchrun():
+        Sound.speak("ready to go")
         btn = Button()
         def up(state):
             if state:
+                Sound.speak("run spider").wait()
                 Spider()
                 program_running = 1
-        def enter(state):
+        def right(state):
             if state:
+                Sound.speak("run red circle").wait()
                 Redcircle()
-                program_running = 1
-        def down(state):
-            if state:
-                Bulldozer()
                 program_running = 1
         def left(state):
             if state:
+                Sound.speak("run bulldozer").wait()
+                Bulldozer()
+                program_running = 1
+        def down(state):
+            if state:
+                Sound.speak("run crane").wait()
                 Crane()
                 program_running = 1
     
         btn.on_left = left   
         btn.on_up = up 
         btn.on_down = down 
-        btn.on_enter = enter
+        btn.on_right = right
         while program_running == 0:
             btn.process()
 
@@ -405,3 +380,7 @@ def main():
 
 if __name__ == "__main__":
     main()    
+#THIS
+#IS
+#ONLY
+#FOR 420
