@@ -57,53 +57,53 @@ def Launchrun():
         if state:
             sleep(0.25)
             if state:
-            Sound.beep()               
+            Sound.beep().wait         
                 Program1()
                 program_running = 1
             else:
-                Sound.beep()
+                Sound.beep().wait
                 Program2()
     def enter(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.beep()             
+            Sound.beep().wait
                 Program3()
                 program_running = 1
             else:
-                Sound.beep()
+                Sound.beep().wait
                 Program4()
     def down(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.beep()               
+            Sound.beep().wait      
                 Program5()
                 program_running = 1
             else:
-                Sound.beep()
+                Sound.beep().wait
                 Program6()
 
     def left(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.beep()                
+            Sound.beep().wait       
                 Program7()
                 program_running = 1
             else:
-                Sound.beep()
+                Sound.beep().wait
                 Program8()
 
     def right(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.beep()               
+            Sound.beep().wait      
                 Program7()
                 program_running = 1
             else:
-                Sound.beep()
+                Sound.beep().wait
                 Program8()
 
 
