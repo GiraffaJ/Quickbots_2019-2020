@@ -10,36 +10,44 @@ program_running = 0
 
 def Program1():
     program_running = 0
+    Sound.speak.("program one")
     Launchrun()  
 
 def Program2():
     program_running = 0
+    Sound.speak.("program two")
     Launchrun()  
 
 def Program3():
     program_running = 0
+    Sound.speak.("program three")
     Launchrun()  
 
 
 def Program4():
     program_running = 0
+    Sound.speak.("program four")
     Launchrun()  
 
 def Program5():
     program_running = 0
+    Sound.speak.("program five")
     Launchrun()  
 
 def Program6():
     program_running = 0
+    Sound.speak.("program six")
     Launchrun()  
 
 def Program7():
     program_running = 0
+    Sound.speak.("program seven")
     Launchrun()  
 
 
 def Program8():
     program_running = 0
+    Sound.speak.("program eight")
     Launchrun()  
 
 def Launchrun():
