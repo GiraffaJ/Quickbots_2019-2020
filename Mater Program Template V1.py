@@ -9,49 +9,6 @@ from ev3dev2.motor import Motor
 program_running = 0
 
 def main():
-#defining each program
-    def Program1():
-        Sound.speak("program one")
-        program_running = 0
-        Launchrun()  
-
-    def Program2():
-        Sound.speak("program two")
-        program_running = 0
-        Launchrun()  
-
-    def Program3():
-        Sound.speak("program three")
-        program_running = 0
-        Launchrun()  
-
-
-    def Program4():
-        Sound.speak("program four")
-        program_running = 0
-        Launchrun()  
-
-    def Program5():
-        Sound.speak("program five")
-        program_running = 0
-        Launchrun()  
-
-    def Program6():
-        Sound.speak("program six")
-        program_running = 0
-        Launchrun()  
-
-    def Program7():
-        Sound.speak("program seven")
-        program_running = 0
-        Launchrun()  
-
-
-    def Program8():
-        Sound.speak("program eight")
-        program_running = 0
-        Launchrun()  
-# Defining launchrun
     def Launchrun():
         btn = Button()
 #if the button is pressed, wait a quarter of a second and then if the button is pressed again run option 1 if else run option 2
@@ -113,5 +70,48 @@ def main():
         btn.on_enter = enter
         while program_running == 0:
             btn.process()
+#defining each program
+    def Program1():
+        Sound.speak("program one")
+        program_running = 0
+        Launchrun()  
+
+    def Program2():
+        Sound.speak("program two")
+        program_running = 0
+        Launchrun()  
+
+    def Program3():
+        Sound.speak("program three")
+        program_running = 0
+        Launchrun()  
+
+
+    def Program4():
+        Sound.speak("program four")
+        program_running = 0
+        Launchrun()  
+
+    def Program5():
+        Sound.speak("program five")
+        program_running = 0
+        Launchrun()  
+
+    def Program6():
+        Sound.speak("program six")
+        program_running = 0
+        Launchrun()  
+
+    def Program7():
+        Sound.speak("program seven")
+        program_running = 0
+        Launchrun()  
+
+
+    def Program8():
+        Sound.speak("program eight")
+        program_running = 0
+        Launchrun()  
+# Defining launchrun
 if __name__ == "__main__":
     main()    
