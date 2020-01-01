@@ -57,53 +57,53 @@ def Launchrun():
         if state:
             sleep(0.25)
             if state:
-            Sound.speak.("option one")                
+            Sound.beep()               
                 Program1()
                 program_running = 1
             else:
-                Sound.speak.("option two")
+                Sound.beep()
                 Program2()
     def enter(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.speak.("option one")                
+            Sound.beep()             
                 Program3()
                 program_running = 1
             else:
-                Sound.speak.("option two")
+                Sound.beep()
                 Program4()
     def down(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.speak.("option one")                
+            Sound.beep()               
                 Program5()
                 program_running = 1
             else:
-                Sound.speak.("option two")
+                Sound.beep()
                 Program6()
 
     def left(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.speak.("option 1")                
+            Sound.beep()                
                 Program7()
                 program_running = 1
             else:
-                Sound.speak.("option two")
+                Sound.beep()
                 Program8()
 
     def right(state):
         if state:
             sleep(0.25)
             if state:
-            Sound.speak.("option 1")                
+            Sound.beep()               
                 Program7()
                 program_running = 1
             else:
-                Sound.speak.("option two")
+                Sound.beep()
                 Program8()
 
 
