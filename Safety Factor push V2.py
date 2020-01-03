@@ -12,9 +12,8 @@ def main():
     C3 = ColorSensor("")
     C4 = ColorSensor("")
     tank_drive = MoveTank(OUTPUT_B, OUTPUT_C)
-    def Safety_factor():
-        tank_drive.on_for_rotations(SpeedPercent(100), SpeedPercent(100), 1
 
-    Safety_factor ()
+    tank_drive.on_for_rotations(SpeedPercent(2000), SpeedPercent(2000), 12.3
+
 if __name__ == "__main__":
-    main()
+    main()  
