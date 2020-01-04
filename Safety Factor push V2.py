@@ -15,7 +15,7 @@ def main():
     C4 = ColorSensor("")
     tank_drive = MoveTank(OUTPUT_B, OUTPUT_C)
 
-    tank_drive.on_for_rotations(SpeedPercent(2000), SpeedPercent(2000), 12.3)
+    tank_drive.on_for_rotations(SpeedPercent(2000), SpeedPercent(2000), 12.3) #<- missing the closing parenthesis  
 
 if __name__ == "__main__":
     main()  
