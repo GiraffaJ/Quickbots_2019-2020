@@ -49,21 +49,21 @@ def main():
 
             if btn.down:
                 sleep(1)
-                if btn.up:
+                if btn.down:
                     Program3()
                 else:
                     Program4()
 
             if btn.left:
                 sleep(1)
-                if btn.up:
+                if btn.left:
                     Program5()
                 else:
                     Program6()
 
             if btn.right:
                 sleep(1)
-                if btn.up:
+                if btn.right:
                     Program7()
                 else:
                     Program8()
