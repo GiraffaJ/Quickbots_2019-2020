@@ -14,6 +14,7 @@ def main():
     tank_drive = MoveTank(OUTPUT_B, OUTPUT_C)
     def Safety_factor():
         tank_drive.on_for_rotations(SpeedPercent(100), SpeedPercent(100), 1)
+
     Safety_factor ()
 if __name__ == "__main__":
     main()
