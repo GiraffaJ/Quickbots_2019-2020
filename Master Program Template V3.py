@@ -9,9 +9,35 @@ from ev3dev2.button import Button
 def main():
     program_running = 0
     def Launchrun():
+        Sound.speak("Ready to go")
+    #defining each program
+        def Program1():
+            Sound.speak("program one")
+
+        def Program2():
+            Sound.speak("program two")
+
+        def Program3():
+            Sound.speak("program three")
+
+        def Program4():
+            Sound.speak("program four")
+
+        def Program5():
+            Sound.speak("program five")
+
+        def Program6():
+            Sound.speak("program six")
+
+        def Program7():
+            Sound.speak("program seven")
+
+        def Program8():
+            Sound.speak("program eight")
+
         btn = Button
 #adjust the while statement for however long you want it to go.
-        while True
+        while True:
 # V if up button is pressed, wait 1 second. if button is still pressed run program 1 if else run program 2 (repeat for each button)
             if btn.up:
 #adjust the sleep for how long you want it to wait for.
@@ -42,30 +68,7 @@ def main():
                 else:
                     Program8()
 
-    #defining each program
-        def Program1():
-            Sound.speak("program one")
 
-        def Program2():
-            Sound.speak("program two")
-
-        def Program3():
-            Sound.speak("program three")
-
-        def Program4():
-            Sound.speak("program four")
-
-        def Program5():
-            Sound.speak("program five")
-
-        def Program6():
-            Sound.speak("program six")
-
-        def Program7():
-            Sound.speak("program seven")
-
-        def Program8():
-            Sound.speak("program eight")
 
 #running launchrun
     Launchrun()
