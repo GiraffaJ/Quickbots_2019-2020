@@ -479,11 +479,11 @@ def main():
         MC.stop(stop_action="hold")
         tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 1.35) #goes forward (2.5) slightly to move the block into tan
 
-        tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 1) #drives back a bit
+        tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 0.7) #drives back a bit (1)
 
-        while GY.value() < 310: #turns to face the bridge backwards
-            left_wheel_speed = -100 #originaly 200
-            right_wheel_speed = 100 #originaly 200
+        while GY.value() < 145: #turns to face the bridge backwards
+            left_wheel_speed = 100 #originaly 200
+            right_wheel_speed = -100 #originaly 200
             MB.run_forever(speed_sp=left_wheel_speed)
             MC.run_forever(speed_sp=right_wheel_speed)
         MB.stop(stop_action="hold")
