@@ -49,8 +49,8 @@ def main():
     #Driving forward towards the red circle. V
     while MB.position > -1700: #was -2550, Joshua is changing it to -2300
         if GY.value() == 90:
-            left_wheel_speed = -200
-            right_wheel_speed = -200
+            left_wheel_speed = -500
+            right_wheel_speed = -500
             MB.run_forever(speed_sp=left_wheel_speed)
             MC.run_forever(speed_sp=right_wheel_speed)
             gyro_adjust = 8
@@ -64,8 +64,8 @@ def main():
                 left_wheel_speed = left_wheel_speed + gyro_adjust 
                 MB.run_forever(speed_sp=left_wheel_speed)
                 MC.run_forever(speed_sp=right_wheel_speed)
-                left_wheel_speed = -200
-                right_wheel_speed = -200
+                left_wheel_speed = -500
+                right_wheel_speed = -500
                 if abs (GY.value()) >= correct_rate: # If gyro value has worsened despite the correction then change the adjust variable for next time
                     gyro_adjust = gyro_adjust + 1
                 gyro_correct_loops = gyro_correct_loops + 1
@@ -84,8 +84,8 @@ def main():
                 right_wheel_speed = right_wheel_speed + gyro_adjust
                 MB.run_forever(speed_sp=left_wheel_speed)
                 MC.run_forever(speed_sp=right_wheel_speed)
-                left_wheel_speed = -200
-                right_wheel_speed = -200
+                left_wheel_speed = -500
+                right_wheel_speed = -500
                 gyro_correct_loops = gyro_correct_loops + 1
                 if abs (GY.value()) >= correct_rate:
                     gyro_adjust = gyro_adjust + 1
