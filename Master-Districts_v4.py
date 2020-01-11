@@ -603,7 +603,7 @@ def main():
         tank_drive.on_for_rotations(SpeedPercent(-50), SpeedPercent(-50), 2.75)
 
     #going back to home. V
-        while MB.position < 2244:
+        while MB.position < 0: #2244 previously
             if GY.value() == 90:
                 left_wheel_speed = 900
                 right_wheel_speed = 900
@@ -657,7 +657,7 @@ def main():
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
 #still going home
-        tank_drive.on_for_rotations(SpeedPercent(40), SpeedPercent(40), 3)
+        tank_drive.on_for_rotations(SpeedPercent(40), SpeedPercent(40), 1.5)
         Launchrun()
 
     def Launchrun():
