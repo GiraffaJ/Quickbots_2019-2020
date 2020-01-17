@@ -419,7 +419,7 @@ def main():
                 right_wheel_speed = -300
                 MB.run_forever(speed_sp=left_wheel_speed)
                 MC.run_forever(speed_sp=right_wheel_speed)
-                gyro_adjust = 6
+                gyro_adjust = 8
                 gyro_correct_loops = 0
                 gyro_correct_straight = 0
                 straight_correct_loops = 0
@@ -479,9 +479,9 @@ def main():
         MC.stop(stop_action="hold")
         tank_drive.on_for_rotations(SpeedPercent(-30), SpeedPercent(-30), 1.35) #goes forward (2.5) slightly to move the block into tan
 
-        tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 0.7) #drives back a bit (0.6)
+        tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 0.7) #drives back a bit (1)
 
-        while GY.value() < 160: #turns to face the bridge backwards
+        while GY.value() < 140: #turns to face the bridge backwards
             left_wheel_speed = 100 #originaly 200
             right_wheel_speed = -100 #originaly 200
             MB.run_forever(speed_sp=left_wheel_speed)
@@ -540,8 +540,8 @@ def main():
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
 
-        #Driving forward towards the red circle. V
-        while MB.position > -1700: #was -2550, Joshua is changing it to -2300
+        #Driving forward towards the safety factor. V
+        while MB.position > -1700:
             if GY.value() == 90:
                 left_wheel_speed = -500
                 right_wheel_speed = -500
@@ -602,9 +602,62 @@ def main():
     #pushing down the beams from safety factor
         tank_drive.on_for_rotations(SpeedPercent(-50), SpeedPercent(-50), 2.75)
 
-    #going back to home
-        tank_drive.on_for_rotations(SpeedPercent(100), SpeedPercent(100), 6)
-        tank_drive.on_for_rotations(SpeedPercent(40), SpeedPercent(40), 3)
+    #going back to home. V
+        while MB.position < 0: #2244 previously
+            if GY.value() == 90:
+                left_wheel_speed = 900
+                right_wheel_speed = 900
+                MB.run_forever(speed_sp=left_wheel_speed)
+                MC.run_forever(speed_sp=right_wheel_speed)
+                gyro_adjust = 8
+                gyro_correct_loops = 0
+                gyro_correct_straight = 0
+                straight_correct_loops = 0
+            else:
+                if GY.value() < 90:
+                    correct_rate = abs (GY.value()) # This captures the gyro value at the beginning of the statement
+                    right_wheel_speed = right_wheel_speed - gyro_adjust 
+                    left_wheel_speed = left_wheel_speed + gyro_adjust 
+                    MB.run_forever(speed_sp=left_wheel_speed)
+                    MC.run_forever(speed_sp=right_wheel_speed)
+                    left_wheel_speed = 900
+                    right_wheel_speed = 900
+                    if abs (GY.value()) <= correct_rate: # If gyro value has worsened despite the correction then change the adjust variable for next time
+                        gyro_adjust = gyro_adjust + 1
+                    gyro_correct_loops = gyro_correct_loops + 1
+                    if GY.value() == 0 and gyro_correct_straight == 0:
+                        while straight_correct_loops > gyro_correct_loops + 1:
+                            right_wheel_speed = right_wheel_speed - gyro_adjust 
+                            left_wheel_speed = left_wheel_speed + gyro_adjust    
+                            straight_correct_loops = straight_correct_loops + 1
+                        gyro_correct_straight = 1
+                        gyro_correct_loops = 0
+                        straight_correct_loops = 0                                  
+                    
+                else:
+                    correct_rate = abs (GY.value()) # Same idea as the other if statement
+                    left_wheel_speed = left_wheel_speed - gyro_adjust 
+                    right_wheel_speed = right_wheel_speed + gyro_adjust
+                    MB.run_forever(speed_sp=left_wheel_speed)
+                    MC.run_forever(speed_sp=right_wheel_speed)
+                    left_wheel_speed = 900
+                    right_wheel_speed = 900
+                    gyro_correct_loops = gyro_correct_loops + 1
+                    if abs (GY.value()) <= correct_rate:
+                        gyro_adjust = gyro_adjust + 1
+                    if GY.value() == 0 and gyro_correct_straight == 0: #this code corrects the gyro back to the right line
+                        while straight_correct_loops > gyro_correct_loops + 1: #runs this loop until it makes the gyro the opposite of what it was when it was wrong in the first place
+                            left_wheel_speed = left_wheel_speed - gyro_adjust 
+                            right_wheel_speed = right_wheel_speed + gyro_adjust
+                            straight_correct_loops = straight_correct_loops + 1
+                        gyro_correct_straight = 1 #makes sure that when the gyro is corrected to both straight and the line it was on that gyro is not messed up again
+                        gyro_correct_loops = 0
+                        straight_correct_loops = 0  
+
+        MB.stop(stop_action="hold")
+        MC.stop(stop_action="hold")
+#still going home
+        tank_drive.on_for_rotations(SpeedPercent(40), SpeedPercent(40), 1.5)
         Launchrun()
 
     def Launchrun():

@@ -360,7 +360,7 @@ def main():
 
         tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 1) #drives back a bit
 
-        while GY.value() > 110: #turns to face the launch area backwards
+        while GY.value() > 90: #turns to face the launch area backwards
             left_wheel_speed = -100 #originaly 200
             right_wheel_speed = 100 #originaly 200
             MB.run_forever(speed_sp=left_wheel_speed)
@@ -390,7 +390,7 @@ def main():
         GY.mode='GYRO-ANG'
         tank_drive = MoveTank(OUTPUT_B, OUTPUT_C)
         loop_gyro = 0
-        gyro_adjust = 1
+        gyro_adjust = 4
         starting_value = GY.value()
         gyro_correct_loops = 0
         straight_correct_loops = 0
@@ -413,13 +413,13 @@ def main():
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
         
-        while MB.position > -1600: # this is the gyro program, the first line tells the bot to continue loop until it reaches a defined position
+        while MB.position > -1550: # this is the gyro program, the first line tells the bot to continue loop until it reaches a defined position
             if GY.value() == 90: #this runs if the gyro is OK and already straight, sets a lot of variables as well
                 left_wheel_speed = -300
                 right_wheel_speed = -300
                 MB.run_forever(speed_sp=left_wheel_speed)
                 MC.run_forever(speed_sp=right_wheel_speed)
-                gyro_adjust = 6
+                gyro_adjust = 4
                 gyro_correct_loops = 0
                 gyro_correct_straight = 0
                 straight_correct_loops = 0
@@ -469,7 +469,7 @@ def main():
         MB.stop(stop_action="hold")
         MC.stop(stop_action="hold")
 
-        while GY.value() > 19: #this turns the bot towards the circle, need to be less than straight 90 degrees
+        while GY.value() > 18: #this turns the bot towards the circle, need to be less than straight 90 degrees
             left_wheel_speed = -100
             right_wheel_speed = 100
             #MB is left wheel & MC is right wheel
@@ -481,7 +481,7 @@ def main():
 
         tank_drive.on_for_rotations(SpeedPercent(30), SpeedPercent(30), 0.7) #drives back a bit (0.6)
 
-        while GY.value() < 160: #turns to face the bridge backwards
+        while GY.value() < 140: #turns to face the bridge backwards
             left_wheel_speed = 100 #originaly 200
             right_wheel_speed = -100 #originaly 200
             MB.run_forever(speed_sp=left_wheel_speed)
