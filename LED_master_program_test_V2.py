@@ -14,7 +14,7 @@ def main():
         GY = GyroSensor("")
         C3 = ColorSensor("")
         C4 = ColorSensor("")
-    def Redcircle():
+    def Redcircle(): # <- indent doesn't match what's above it
         program_running = 1
 #Setting the Gyro. V
         GY.mode='GYRO-ANG'
@@ -109,7 +109,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Bulldozer():
+    def Bulldozer(): # <- indent doesn't match what's above it 
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -168,7 +168,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Crane():
+    def Crane(): # <- indent doesn't match what's above it 
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -237,7 +237,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Spider():
+    def Spider(): # <- indent doesn't match what's above it
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -350,7 +350,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Traffic():
+    def Traffic(): # <- indent doesn't match what's above it
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -469,7 +469,7 @@ def main():
         program_running = 0
         Launchrun()
         
-    def Krab():
+    def Krab(): # <- indent doesn't match what's above it
         program_running = 1
     #Setting the Gyro. V
         GY.mode='GYRO-ANG'
@@ -630,7 +630,7 @@ def main():
         program_running = 0
         Launchrun()
 
-    def Launchrun():
+    def Launchrun(): # <- indent doesn't match what's above it
         Sound.speak("ready to go")
         btn = Button()
 #adjust the while statement for however long you want it to go.
