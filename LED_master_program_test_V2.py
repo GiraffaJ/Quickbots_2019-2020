@@ -5,17 +5,15 @@ from time import sleep
 from ev3dev2.motor import Motor
 from ev3dev2.button import Button
 program_running = 0
+MA = MediumMotor("outA")
+MB = LargeMotor("outB")
+MC = LargeMotor("outC")
+MD = MediumMotor("outD")
+GY = GyroSensor("")
+C3 = ColorSensor("")
+C4 = ColorSensor("")
 def main():
-    Sound.speak("").wait()
-    MA = MediumMotor("outA")
-    MB = LargeMotor("outB")
-    MC = LargeMotor("outC")
-    MD = MediumMotor("outD")
-    GY = GyroSensor("")
-    C3 = ColorSensor("")
-    C4 = ColorSensor("")
-    
-    def Redcircle():
+    def Redcircle(): 
         program_running = 1
 #Setting the Gyro. V
         GY.mode='GYRO-ANG'
@@ -110,7 +108,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Bulldozer(): # <- indent doesn't match what's above it 
+    def Bulldozer():
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -169,7 +167,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Crane(): # <- indent doesn't match what's above it 
+    def Crane(): 
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -238,7 +236,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Spider(): # <- indent doesn't match what's above it
+    def Spider():
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -351,7 +349,7 @@ def main():
         program_running = 0
         Launchrun()  
 
-    def Traffic(): # <- indent doesn't match what's above it
+    def Traffic(): 
         program_running = 1
 #setting gyro
         GY.mode='GYRO-ANG'
@@ -467,10 +465,10 @@ def main():
             if btn.enter:
                 MB.stop(stop_action="coast")
                 MC.stop(stop_action="coast")
-        program_running = 0
-        Launchrun()
+                program_running = 0
+                Launchrun()
         
-    def Krab(): # <- indent doesn't match what's above it
+    def Krab(): 
         program_running = 1
     #Setting the Gyro. V
         GY.mode='GYRO-ANG'
@@ -631,12 +629,13 @@ def main():
         program_running = 0
         Launchrun()
 
-    def Launchrun(): # <- indent doesn't match what's above it
+    def Launchrun(): 
         Sound.speak("ready to go")
         btn = Button()
 #adjust the while statement for however long you want it to go.
         while True:
-            Leds.all_off()
+            Leds.set_color(Leds.LEFT, Leds.AMBER)
+            Leds.set_color(Leds.RIGHT, Leds.AMBER)
 # V if up button is pressed, wait 1 second. if button is still pressed run program 1 if else run program 2 (repeat for each button)
             if btn.up:
                 sleep(1) 
@@ -664,7 +663,7 @@ def main():
                 else:
                     Leds.all_off()
                     Crane()
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
             if btn.right:
                 sleep(1)
                 if btn.right:
