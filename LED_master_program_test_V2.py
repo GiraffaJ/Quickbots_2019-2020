@@ -6,15 +6,16 @@ from ev3dev2.motor import Motor
 from ev3dev2.button import Button
 program_running = 0
 def main():
-        Sound.speak("").wait()
-        MA = MediumMotor("outA")
-        MB = LargeMotor("outB")
-        MC = LargeMotor("outC")
-        MD = MediumMotor("outD")
-        GY = GyroSensor("")
-        C3 = ColorSensor("")
-        C4 = ColorSensor("")
-    def Redcircle(): # <- indent doesn't match what's above it
+    Sound.speak("").wait()
+    MA = MediumMotor("outA")
+    MB = LargeMotor("outB")
+    MC = LargeMotor("outC")
+    MD = MediumMotor("outD")
+    GY = GyroSensor("")
+    C3 = ColorSensor("")
+    C4 = ColorSensor("")
+    
+    def Redcircle():
         program_running = 1
 #Setting the Gyro. V
         GY.mode='GYRO-ANG'
